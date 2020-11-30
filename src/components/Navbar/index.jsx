@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { FaBars } from 'react-icons/fa';
 import {
   Nav,
@@ -13,14 +14,14 @@ import {
 } from './NavbarElements';
 import Logo from '../../images/rhea-logo.png';
 
-const Navbar = () => (
+const Navbar = ({ toggle }) => (
   <>
     <Nav>
       <NavbarContainer>
         <NavLogo to="/">
           <img src={Logo} alt="logo" />
         </NavLogo>
-        <MobileIcon>
+        <MobileIcon onClick={toggle}>
           <FaBars />
         </MobileIcon>
         <NavMenu>
@@ -50,5 +51,9 @@ const Navbar = () => (
     </Nav>
   </>
 );
+
+Navbar.propTypes = {
+  toggle: PropTypes.func,
+};
 
 export default Navbar;
